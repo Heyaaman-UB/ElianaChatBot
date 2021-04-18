@@ -13,7 +13,7 @@ eliana = Client(
 
 
 async def chatbot(text):
-    url = f"https://elianaapi.herokuapp.com/eliana/chatbot?text={text}&name=botname"
+    url = f"https://elianaapi.herokuapp.com/eliana/chatbot?text={text}&name=eliana"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as res:
             res = await res.json()
@@ -51,4 +51,56 @@ async def chat(_, message):
         else:
             query = message.text
         if len(query) > 50:
-    
+            return
+        try:
+            res = await chatbot(query)
+            await asyncio.sleep(1)
+        except Exception as e:
+            res = str(e)
+        await message.reply_text(res)
+        await eliana.send_chat_action(message.chat.id, "cancel")
+    else:
+        if message.text:
+            query = message.text
+            if len(query) > 50:
+                return
+            if re.search("[.|\n]{0,}[l|L][u|U][n|N][a|A][.|\n]{0,}", query):
+                await eliana.send_chat_action(message.chat.id, "typing")
+                try:
+                    res = await chatbot(query)
+                    await asyncio.sleep(1)
+                except Exception as e:
+                    res = str(e)
+                await message.reply_text(res)
+                await eliana.send_chat_action(message.chat.id, "cancel")
+
+
+@eliana.on_message(
+    filters.private
+    & ~filters.command("help")
+    & ~filters.edited
+)
+async def chatpm(_, message):
+    if not message.text:
+        return
+    await eliana.send_chat_action(message.chat.id, "typing")
+    query = message.text
+    if len(query) > 50:
+        return
+    try:
+        res = await chatbot(query)
+        await asyncio.sleep(1)
+    except Exception as e:
+        res = str(e)
+    await message.reply_text(res)
+    await eliana.send_chat_action(message.chat.id, "cancel")
+
+
+print(
+    """
+  Eliana Started
+"""
+)
+
+
+eliana.run()
