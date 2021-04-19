@@ -1,12 +1,12 @@
 import asyncio
 import aiohttp
 import re
-from config import token, owner_id, bot_id
+from config import bot_token, owner_id, bot_id
 from pyrogram import Client, filters
 
 eliana = Client(
     ":memory:",
-    token="token Api here",
+    bot_token="token Api here",
     api_id=2442183,
     api_hash="66c6799e1b784aff78bad680cd8362db",
 )
