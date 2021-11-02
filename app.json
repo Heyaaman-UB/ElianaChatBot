@@ -1,58 +1,44 @@
 {
-      "name": "KazukoBot",
-      "description": "Telegram group management bot.",
-      "logo": "https://telegra.ph/file/9cd450abab6160b9f9b56.jpg",
-      "keywords": [
-         "telegram",
-         "anime",
-         "group",
-         "manager",
-         "kazuko"
-      ],   
-   "repository": "https://github.com/Heyaaman-UB/ElianaChatBot.git",
-   "addons": [
-      {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-   ],
-   "buildpacks": [
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-python"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-    }
-  ],  
-   "env": {
+  "name": "Chiku The Chat Bot",
+  "description": "Just another Telegram AI chat bot written in Python using Pyrogram.",
+  "repository": "https://github.com/Heyaaman-UB/ElianaChatBot",
+  "keywords" : [
+    "python",
+    "ai-bot",
+    "telegram-ai-bot",
+    "telegram-bot",
+    "pyrogram",
+    "bot"
+  ],
+  "stack": "heroku-20",
+  "env": {
     "TOKEN": {
            "description": "Your Bot's Api Token ,Get it from @BotFather",
            "required": true
-           "value": ""
-    },
-    "HASH_ID": {
-           "description": " Hash id of yours",
-           "required": true
-           "value": ""
     },
     "API_ID": {
-           "description": "API ID of yours",
-           "value": "en",
+           "description": "API ID",
            "required": true
-           "value": ""
     },
-    "OWNER_ID ": {
-          "description": "Owner ID.",
-          "required": true,
-          "value": ""          
+    "HASH_ID": {
+           "description": "HASH ID",
+           "value": "",
+           "required": true
     },
     "BOT_ID": {
-         "description": "Your bot id.",
-         "required": true,
-         "value": ""         
+           "description": "BOT TOKEN",
+           "value": "",
+           "required": true
+    },
+    "OWNER_ID": {
+           "description": "OWNER ID",
+           "value": "",
+           "required": true
     }
-      
- }
+  },
+  "buildpacks": [
+   {
+    "url": "heroku/python"
+   }
+  ]
 }
