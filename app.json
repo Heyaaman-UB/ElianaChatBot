@@ -7,11 +7,12 @@
     "ai-bot",
     "telegram-ai-bot",
     "telegram-bot",
-    "pyrogram",
-    "arq"
+    "Kazuko",
+    "bot"
   ],
   "stack": "heroku-20",
   "env": {
+
     "TOKEN": {
            "description": "Your Bot's Api Token ,Get it from @BotFather",
            "required": true
