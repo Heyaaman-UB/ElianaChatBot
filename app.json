@@ -1,0 +1,34 @@
+{
+  "name": "Chiku The Chat Bot",
+  "description": "Just another Telegram AI chat bot written in Python using Pyrogram.",
+  "repository": "https://github.com/heyaaman/Chiku_Chatbot",
+  "keywords" : [
+    "python",
+    "ai-bot",
+    "telegram-ai-bot",
+    "telegram-bot",
+    "pyrogram",
+    "arq"
+  ],
+  "stack": "heroku-20",
+  "env": {
+    "TOKEN": {
+           "description": "Your Bot's Api Token ,Get it from @BotFather",
+           "required": true
+    },
+    "HASH_ID": {
+           "description": " Hash id of yours",
+           "required": true
+    },
+    "API_ID": {
+           "description": "API ID of yours",
+           "value": "en",
+           "required": true
+    }
+  },
+  "buildpacks": [
+   {
+    "url": "heroku/python"
+   }
+  ]
+}
